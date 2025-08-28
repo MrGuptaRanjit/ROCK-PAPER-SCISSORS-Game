@@ -1,68 +1,100 @@
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     text-align: center;
+    box-sizing: border-box;
 }
 
-h1{
+h1 {
     background-color: black;
-    color:white;
-    line-height:5rem;
+    color: white;
+    line-height: 4rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem); 
 }
 
-.choice{
-    height: 165px;
-    width: 165px;
+.choice {
+    height: 12vw;
+    width: 12vw;
+    max-height: 150px;
+    max-width: 150px;
+    min-height: 80px;
+    min-width: 80px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s ease;
 }
 
-.choice:hover{
-    opacity: 0.5;
+.choice:hover {
+    opacity: 0.8;
     cursor: pointer;
     background-color: green;
 }
 
-img{
-    height: 150px;
-    width: 150px;
+img {
+    height: 90%;
+    width: 90%;
     object-fit: cover;
     border-radius: 50%;
 }
 
-.choices{
+.choices {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    text-align: center;
-    gap: 3rem;
-    margin-top: 3rem;
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-.score-board{
+.score-board {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    gap: 5rem;
-    margin-top: 3rem;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
-
-#user-score , #comp-score {
-    font-size: 4rem;
+#user-score, 
+#comp-score {
+    font-size: clamp(2rem, 6vw, 4rem);
 }
 
-.msg-container{
-    margin-top: 3rem;
+.msg-container {
+    margin-top: 2rem;
 }
 
-#msg{
-    background-color:black;
+#msg {
+    background-color: black;
     color: white;
-    font-size: 1.5rem;
-    display: inline;
-    padding: 1rem;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    display: inline-block;
+    padding: 0.8rem 1.2rem;
     border-radius: 1rem;
+}
+
+@media (max-width: 768px) {
+    .choices {
+        gap: 1.5rem;
+    }
+    .choice {
+        height: 20vw;
+        width: 20vw;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        line-height: 3rem;
+    }
+    .choice {
+        height: 28vw;
+        width: 28vw;
+    }
+    .score-board {
+        gap: 1rem;
+        font-size: 1.2rem;
+    }
 }
