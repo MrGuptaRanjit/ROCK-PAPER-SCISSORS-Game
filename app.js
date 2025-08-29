@@ -6,9 +6,17 @@ const msg = document.querySelector("#msg");
 const userWinCount = document.querySelector("#user-score");
 const compWinCount = document.querySelector("#comp-score");
 const newGameBtn = document.querySelector("#new-btn");
+const showopt1 = document.querySelector("#opt1");
+const showopt2 = document.querySelector("#opt2");
 
 
-// start a new game
+ const showChoices =(userChoice , compChoice) => {
+    showopt1.innerText=`Your choice : ${userChoice}`;
+    showopt2.innerText=`Comp choice : ${compChoice}`;
+
+ }
+
+
 const newGame = () => {
         userScore=0;
         compScore=0;
@@ -16,7 +24,11 @@ const newGame = () => {
         compWinCount.innerText=0;
         msg.innerText="New Game Started!";
         msg.style.backgroundColor="black";
+        showopt1.innerText="Your choice : None";
+        showopt2.innerText="Comp choice : None";
 }
+
+
 // generate computer choice
 const genCompChoice = () => {
     const options = ["rock" , "paper" , "scissors"];
@@ -48,8 +60,12 @@ const playGame = (userChoice) => {
 
     const compChoice = genCompChoice();
 
+    showChoices(userChoice , compChoice);
+
+
     if(userChoice === compChoice){
         // game is draw
+        
         drawGame();
     } else {
         let userWin = true;
@@ -73,4 +89,5 @@ choices.forEach((choice) => {
         playGame(userChoice);
     });
 });
+
 newGameBtn.addEventListener("click" , newGame);
