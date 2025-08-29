@@ -8,6 +8,7 @@ const compWinCount = document.querySelector("#comp-score");
 const newGameBtn = document.querySelector("#new-btn");
 const showopt1 = document.querySelector("#opt1");
 const showopt2 = document.querySelector("#opt2");
+const optionHide = document.querySelector(".options");
 
 
  const showChoices =(userChoice , compChoice) => {
@@ -26,12 +27,13 @@ const newGame = () => {
         msg.style.backgroundColor="black";
         showopt1.innerText="Your choice : None";
         showopt2.innerText="Comp choice : None";
+        optionHide.classList.add("hide");
 }
 
 
 // generate computer choice
 const genCompChoice = () => {
-    const options = ["rock" , "paper" , "scissors"];
+    const options = ["rock" , "paper" , "scissor"];
     const rdmIndex = Math.floor(Math.random()*3);
     return options[rdmIndex];
 }
@@ -57,6 +59,7 @@ const showWinner = (userWin , userChoice , compChoice) => {
 }
 
 const playGame = (userChoice) => {
+    optionHide.classList.remove("hide");
 
     const compChoice = genCompChoice();
 
@@ -74,8 +77,8 @@ const playGame = (userChoice) => {
             userWin = compChoice === "paper" ? false : true;
         } else if(userChoice === "paper"){
             // comp choice : "rock" OR "scissors"
-            userWin = compChoice === "scissors" ? false : true;
-        } else if(userChoice === "scissors"){
+            userWin = compChoice === "scissor" ? false : true;
+        } else if(userChoice === "scissor"){
             // comp choice : "rock" OR "paper"
             userWin = compChoice === "rock" ? false : true;
         }
