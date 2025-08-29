@@ -5,8 +5,18 @@ const choices = document.querySelectorAll(".choice");
 const msg = document.querySelector("#msg");
 const userWinCount = document.querySelector("#user-score");
 const compWinCount = document.querySelector("#comp-score");
+const newGameBtn = document.querySelector("#new-btn");
 
 
+// start a new game
+const newGame = () => {
+        userScore=0;
+        compScore=0;
+        userWinCount.innerText=0;
+        compWinCount.innerText=0;
+        msg.innerText="New Game Started!";
+        msg.style.backgroundColor="black";
+}
 // generate computer choice
 const genCompChoice = () => {
     const options = ["rock" , "paper" , "scissors"];
@@ -63,3 +73,4 @@ choices.forEach((choice) => {
         playGame(userChoice);
     });
 });
+newGameBtn.addEventListener("click" , newGame);
