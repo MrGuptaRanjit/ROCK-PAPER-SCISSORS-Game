@@ -66,13 +66,15 @@ img {
     margin-top: 2rem;
 }
 
-#msg {
+#msg , #new-btn {
     background-color: black;
     color: white;
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     display: inline-block;
     padding: 0.8rem 1.2rem;
     border-radius: 1rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -98,3 +100,4 @@ img {
         font-size: 1.2rem;
     }
 }
+
